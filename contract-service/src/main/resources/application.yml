@@ -1,0 +1,18 @@
+server:
+  port: 8000
+
+spring:
+  r2dbc:
+    url: r2dbc:h2:mem:///contentitem?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name: sa
+    password:
+
+grpc:
+  server:
+    port: 8001
+  client:
+    customer-service:
+      address: localhost:8081
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext

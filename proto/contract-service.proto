@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "customer-service.proto";
+
+option java_multiple_files = true;
+
+service ContractService{
+  rpc createContract(ContractCreate) returns (ContractDetails);
+  rpc contractDetails(customer.service.GetCustomerRequest) returns (ContractDetails);
+};
+
+message ContractCreate {
+  customer.service.GetCustomerRequest customer = 1;
+  double value = 2;
+}
+
+message ContractDetails{
+  string number = 1;
+  double value = 2;
+  string customer = 3;
+  string person_type = 4;
+}

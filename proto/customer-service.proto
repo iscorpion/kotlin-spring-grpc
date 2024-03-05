@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package customer.service;
+
+option java_multiple_files = true;
+
+service CustomerService {
+  rpc newCustomer(CustomerCreateRequest) returns (CustomerCreateResponse);
+  rpc getCustomer(GetCustomerRequest) returns (GetCustomerResponse);
+}
+
+message CustomerCreateRequest {
+  string name = 1;
+  string email = 2;
+  string person_type = 3;
+}
+
+message CustomerCreateResponse {
+  string cod_customer = 1;
+}
+
+message GetCustomerRequest {
+  string cod_customer = 1;
+}
+
+message GetCustomerResponse {
+  string cod_customer = 1;
+  string name = 2;
+  string email = 3;
+  string person_type = 4;
+}
